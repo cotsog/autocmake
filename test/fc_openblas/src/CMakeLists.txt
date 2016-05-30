@@ -1,4 +1,4 @@
-if(OpenBLAS_FOUND)
+if(OpenBLAS_FOUND AND ENABLE_OPENBLAS)
     add_executable(example example.f90)
     target_link_libraries(example ${OpenBLAS_LIB})
 else()
