@@ -109,6 +109,10 @@ def test_fc_blas():
     configure_build_and_exe('fc_blas', 'python setup --fc=gfortran --blas')
 
 
+def test_fc_openblas():
+    configure_build_and_exe('fc_openblas', 'python setup --fc=gfortran --openblas')
+
+
 def test_fc_lapack():
     configure_build_and_exe('fc_lapack', 'python setup --fc=gfortran --lapack')
 
