@@ -19,9 +19,9 @@ matrix:
             - cmake
               # math libraries
             - libblas-dev
-            - liblapack-dev
+            #- liblapack-dev
             - libatlas-base-dev
-            #- libopenblas-base
+            - libopenblas-base
             - libopenblas-dev
               # mpi
             - openmpi-bin
@@ -46,7 +46,7 @@ matrix:
               # math libraries
             - libblas-dev
             - liblapack-dev
-            - libatlas-base-dev
+            #- libatlas-base-dev
             - libopenblas-base
             - libopenblas-dev
               # mpi
@@ -65,7 +65,7 @@ matrix:
 install:
   - |
     if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
-        brew install cmake boost python gcc open-mpi homebrew/science/openblas
+        brew install cmake boost python gcc open-mpi openblas
         pip install virtualenv
     elif [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
         pip install --user virtualenv
