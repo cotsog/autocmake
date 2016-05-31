@@ -28,7 +28,15 @@ if(ENABLE_CBLAS)
     set(CBLAS_INCLUDE_DIR "NOTFOUND")
 
     _find_library(cblas cblas_dgemm CBLAS_LIBRARIES)
-    _find_include_dir(cblas.h /usr CBLAS_INCLUDE_DIR)
+    _find_include_dir(cblas.h /usr 
+                              /usr/include 
+                              /usr/include/openblas 
+                              /usr/include/openblas-base 
+                              /usr/local/include
+                              /usr/local/include/openblas
+                              /usr/local/include/openblas-base
+                              /opt/OpenBLAS/include
+                  CBLAS_INCLUDE_DIR)
 
     if(NOT "${CBLAS_LIBRARIES}" MATCHES "NOTFOUND")
         if(NOT "${CBLAS_INCLUDE_DIR}" MATCHES "NOTFOUND")
