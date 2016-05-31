@@ -19,11 +19,10 @@ matrix:
             - cmake
               # math libraries
             - libblas-dev
-            #- liblapack-dev
-            - libatlas-base-dev
-            - libopenblas-base
+            - liblapack-dev
+            #- libatlas-base-dev
+            #- libopenblas-base
             - libopenblas-dev
-            #- libatlas-dev
               # mpi
             - openmpi-bin
             - libopenmpi-dev
@@ -48,7 +47,7 @@ matrix:
             - libblas-dev
             - liblapack-dev
             #- libatlas-base-dev
-            - libopenblas-base
+            #- libopenblas-base
             - libopenblas-dev
               # mpi
             - openmpi-bin

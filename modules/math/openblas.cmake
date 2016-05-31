@@ -15,6 +15,7 @@
 
 option(ENABLE_OPENBLAS "Find and link to OpenBLAS" OFF)
 
+if (ENABLE_OPENBLAS)
 SET(Open_BLAS_INCLUDE_SEARCH_PATHS
   /usr/include
   /usr/include/openblas
@@ -76,3 +77,4 @@ MARK_AS_ADVANCED(
     OpenBLAS_LIB
     OpenBLAS
 )
+endif()
