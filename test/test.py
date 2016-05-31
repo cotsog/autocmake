@@ -109,6 +109,7 @@ def test_fc_blas():
     configure_build_and_exe('fc_blas', 'python setup --fc=gfortran --blas')
 
 
+@skip_on_osx
 def test_fc_openblas():
     configure_build_and_exe('fc_openblas', 'python setup --fc=gfortran --openblas')
 
