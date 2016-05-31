@@ -22,7 +22,7 @@ matrix:
             - liblapack-dev
             #- libopenblas-base
             - libopenblas-dev
-            - libatlas-dev
+            #- libatlas-dev
               # mpi
             - openmpi-bin
             - libopenmpi-dev
@@ -46,9 +46,9 @@ matrix:
               # math libraries
             - libblas-dev
             - liblapack-dev
-            #- libatlas-base-dev
-            - libatlas-dev
-            #- libopenblas-base
+            - libatlas-base-dev
+            #- libatlas-dev
+            - libopenblas-base
             - libopenblas-dev
               # mpi
             - openmpi-bin
