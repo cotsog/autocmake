@@ -87,8 +87,8 @@ script:
 
 after_script:
     # remove library packages, install openblas 
-  - apt-get remove libatlas-base-dev liblapack-dev libblas-dev
-  - apt-get install libopenblas-base  libopenblas-dev
+  - sudo apt-get remove libatlas-base-dev liblapack-dev libblas-dev
+  - sudo apt-get install libopenblas-base  libopenblas-dev
     # run own openblas test
   - py.test -vv test/test_openblas.py
 
