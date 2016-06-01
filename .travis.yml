@@ -85,12 +85,10 @@ script:
   - py.test -vv autocmake/*
   - py.test -vv test/test.py
 
-install:
+after_script:
     # remove library packages, install openblas 
   - apt-get remove libatlas-base-dev liblapack-dev libblas-dev
   - apt-get install libopenblas-base  libopenblas-dev
-
-script:
     # run own openblas test
   - py.test -vv test/test_openblas.py
 
