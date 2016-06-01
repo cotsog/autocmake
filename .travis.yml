@@ -84,9 +84,14 @@ script:
     # unit tests
   - py.test -vv autocmake/*
   - py.test -vv test/test.py
-    # remove library packages, install openblas and run dedicated test
-  - apt-get remove libatlas-base-dev liblapack-dev libblas-dev
-  - apt-get install libopenblas-base  libopenblas-dev
+
+install:
+    # remove library packages, install openblas 
+  - sudo apt-get remove libatlas-base-dev liblapack-dev libblas-dev
+  - sudo apt-get install libopenblas-base  libopenblas-dev
+
+script:
+    # run own openblas test
   - py.test -vv test/test_openblas.py
 
 notifications:
