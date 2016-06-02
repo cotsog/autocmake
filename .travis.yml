@@ -7,7 +7,7 @@ matrix:
     - os: linux
       python: 2.7
       compiler: gcc
-      env: SOURCES=ubuntu-toolchain-r-test
+      env: SOURCES=ubuntu-toolchain-r-test TEST_SCRIPT=test_blas.py
       addons:
         apt:
           sources:
@@ -21,8 +21,6 @@ matrix:
             - libblas-dev
             - liblapack-dev
             - libatlas-base-dev
-            #- libopenblas-base
-            #- libopenblas-dev
               # mpi
             - openmpi-bin
             - libopenmpi-dev
@@ -34,7 +32,7 @@ matrix:
     - os: linux
       python: 3.5
       compiler: gcc
-      env: SOURCES=ubuntu-toolchain-r-test
+      env: SOURCES=ubuntu-toolchain-r-test TEST_SCRIPT=test_openblas.py
       addons:
         apt:
           sources:
@@ -44,11 +42,8 @@ matrix:
             - g++
             - gfortran
               # math libraries
-            - libblas-dev
-            - liblapack-dev
-            - libatlas-base-dev
-            #- libopenblas-base
-            #- libopenblas-dev
+            - libopenblas-base
+            - libopenblas-dev
               # mpi
             - openmpi-bin
             - libopenmpi-dev
@@ -83,14 +78,7 @@ script:
   - pep8 --ignore E501,E265 autocmake
     # unit tests
   - py.test -vv autocmake/*
-  - py.test -vv test/test.py
-
-after_script:
-    # remove library packages, install openblas 
-  - sudo apt-get remove libatlas-base-dev liblapack-dev libblas-dev
-  - sudo apt-get install libopenblas-base  libopenblas-dev
-    # run own openblas test
-  - py.test -vv test/test_openblas.py
+  - py.test -vv test/$TEST_SCRIPT
 
 notifications:
   email: false
